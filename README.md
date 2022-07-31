@@ -1,5 +1,5 @@
 # dotfiles
 
 ```sh
-stow nvim tmux
+stow <package>
 ```
