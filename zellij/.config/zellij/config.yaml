@@ -11,7 +11,7 @@ mouse_mode: true
 themes:
   default:
     bg: '#45403d'
-    fg: '#fbf1c7'
+    fg: '#a89984'
     black: '#3c3836'
     gray: '#928374'
     red: '#cc241d'
