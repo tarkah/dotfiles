@@ -1,0 +1,88 @@
+---
+default_mode: locked
+default_layout: default
+theme: default
+on_force_close: quit
+pane_frames: false
+scrollback_editor: /usr/bin/nvim
+copy_on_select: true
+mouse_mode: true
+
+themes:
+  default:
+    bg: '#45403d'
+    fg: '#fbf1c7'
+    black: '#3c3836'
+    gray: '#928374'
+    red: '#cc241d'
+    green: '#98971a'
+    yellow: '#d79921'
+    blue: '#458588'
+    magenta: '#b16286'
+    cyan: '#689d6a'
+    white: '#ebdbb2'
+    orange: '#d65d0e'
+
+plugins:
+    - path: tab-bar
+      tag: tab-bar
+    - path: status-bar
+      tag: status-bar
+    - path: strider
+      tag: strider
+    - path: compact-bar
+      tag: compact-bar
+
+keybinds:
+    unbind: true
+    locked:
+        - action: [SwitchToMode: Normal,]
+          key: [Ctrl: 'b',]
+    normal:
+        - action: [Detach,]
+          key: [Char: 'd',]
+        - action: [NewPane: Right, SwitchToMode: Locked,]
+          key: [ Char: '|',]
+        - action: [NewPane: Down, SwitchToMode: Locked,]
+          key: [ Char: '-',]
+        - action: [CloseFocus, SwitchToMode: Locked,]
+          key: [Char: 'x',]
+        - action: [NewTab: , SwitchToMode: Locked,]
+          key: [Char: 'c',]
+        - action: [CloseTab, SwitchToMode: Locked,]
+          key: [ Char: 'q',]
+        - action: [ToggleFloatingPanes, SwitchToMode: Locked,]
+          key: [Char: 'w']
+        - action: [SwitchToMode: RenameTab, TabNameInput: [0],]
+          key: [Char: ',',]
+        - action: [MoveFocus: Left, SwitchToMode: Locked,]
+          key: [ Char: 'h',]
+        - action: [MoveFocus: Right, SwitchToMode: Locked,]
+          key: [ Char: 'l',]
+        - action: [MoveFocus: Down, SwitchToMode: Locked,]
+          key: [ Char: 'j',]
+        - action: [MoveFocus: Up, SwitchToMode: Locked,]
+          key: [ Char: 'k',]
+        - action: [GoToTab: 1, SwitchToMode: Locked,]
+          key: [ Char: '1',]
+        - action: [GoToTab: 2, SwitchToMode: Locked,]
+          key: [ Char: '2',]
+        - action: [GoToTab: 3, SwitchToMode: Locked,]
+          key: [ Char: '3',]
+        - action: [GoToTab: 4, SwitchToMode: Locked,]
+          key: [ Char: '4',]
+        - action: [GoToTab: 5, SwitchToMode: Locked,]
+          key: [ Char: '5',]
+        - action: [GoToTab: 6, SwitchToMode: Locked,]
+          key: [ Char: '6',]
+        - action: [GoToTab: 7, SwitchToMode: Locked,]
+          key: [ Char: '7',]
+        - action: [GoToTab: 8, SwitchToMode: Locked,]
+          key: [ Char: '8',]
+        - action: [GoToTab: 9, SwitchToMode: Locked,]
+          key: [ Char: '9',]
+        - action: [ToggleFocusFullscreen, SwitchToMode: Locked,]
+          key: [ Char: 'z',]
+    renametab:
+        - action: [SwitchToMode: Locked,]
+          key: [Char: "\n",]
