@@ -37,7 +37,7 @@ keybinds:
     unbind: true
     locked:
         - action: [SwitchToMode: Normal,]
-          key: [Ctrl: 'b',]
+          key: [Ctrl: 'a',]
     normal:
         - action: [Detach,]
           key: [Char: 'd',]
