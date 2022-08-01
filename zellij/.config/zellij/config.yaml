@@ -57,6 +57,8 @@ keybinds:
           key: [Char: 'q',]
         - action: [ToggleFloatingPanes, SwitchToMode: Locked,]
           key: [Char: 'w']
+        - action: [ToggleFocusFullscreen, SwitchToMode: Locked,]
+          key: [Char: 'z',]
         - action: [SwitchToMode: RenameTab, TabNameInput: [0],]
           key: [Char: ',',]
         - action: [MoveFocus: Left, SwitchToMode: Locked,]
