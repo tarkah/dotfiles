@@ -10,4 +10,7 @@ bindkey -e
 
 alias ll="ls -al --color"
 
+. /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^ ' autosuggest-accept
+
 eval "$(starship init zsh)"
