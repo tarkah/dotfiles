@@ -1,6 +1,7 @@
 ---
 default_mode: locked
 default_layout: default
+default_shell: zsh
 theme: default
 on_force_close: quit
 pane_frames: false
