@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
           },
           pickers = {
               diagnostics = {
-                  root_dir = "/home/tarkah/projects",
+                  root_dir = os.getenv( "HOME" ) .. "/projects",
               },
           },
           extensions = {
@@ -134,7 +134,7 @@ return require('packer').startup(function(use)
                         local count = { 0, 0, 0, 0 }
                         for _, diagnostic in ipairs(diagnostics) do
                           local name = vim.api.nvim_buf_get_name(diagnostic.bufnr)
-                          local whitelist_dir = "/home/tarkah/projects"
+                          local whitelist_dir = os.getenv( "HOME" ) .. "/projects"
                           local allowed = string.sub(name, 1, #whitelist_dir) == whitelist_dir
 
                           if allowed then
