@@ -1,3 +1,6 @@
+# Fpath
+fpath+=~/.zfunc
+
 # Completions
 zstyle :compinstall filename '/home/tarkah/.zshrc'
 autoload -Uz compinit
@@ -14,9 +17,20 @@ bindkey '^ ' autosuggest-accept
 
 # Aliases
 alias ll="ls -al --color"
+alias vi="nvim"
+
+# OS specific
+case `uname` in
+    Darwin)
+        . /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    ;;
+    Linux)
+        . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    ;;
+esac
 
 # Sourcing
-. /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 . "$HOME/.cargo/env"
 . "$HOME/.base16_theme"
 
@@ -27,3 +41,4 @@ export PATH
 
 # Eval
 eval "$(starship init zsh)"
+
