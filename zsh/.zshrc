@@ -22,10 +22,12 @@ alias vi="nvim"
 # OS specific
 case `uname` in
     Darwin)
+        path+=($HOME/.rustup/toolchains/nightly-aarch64-apple-darwin/bin)
         . /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
         eval "$(/opt/homebrew/bin/brew shellenv)"
     ;;
     Linux)
+        path+=($HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin)
         . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     ;;
 esac
@@ -35,7 +37,6 @@ esac
 . "$HOME/.base16_theme"
 
 # Path
-path+=($HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin)
 path=($HOME/.local/bin $path)
 export PATH
 
