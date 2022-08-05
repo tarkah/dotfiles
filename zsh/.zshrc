@@ -18,6 +18,7 @@ bindkey '^ ' autosuggest-accept
 # Aliases
 alias ll="ls -al --color"
 alias vi="nvim"
+alias vim='nvim'
 
 # OS specific
 case `uname` in
