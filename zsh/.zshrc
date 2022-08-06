@@ -36,6 +36,7 @@ esac
 # Sourcing
 . "$HOME/.cargo/env"
 . "$HOME/.base16_theme"
+. "$HOME/.zshrc_local"
 
 # Path
 path=($HOME/.local/bin $path)
