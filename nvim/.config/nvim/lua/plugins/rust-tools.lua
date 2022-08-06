@@ -22,9 +22,9 @@ local opts = {
                 -- enable clippy on save
                 checkOnSave = {
                     overrideCommand = {
-                        "cargo", 
-                        "clippy", 
-                        "--all", 
+                        "cargo",
+                        "clippy",
+                        "--all",
                         "--message-format=json",
                         "--",
                         "-A", "clippy::too_many_arguments",
