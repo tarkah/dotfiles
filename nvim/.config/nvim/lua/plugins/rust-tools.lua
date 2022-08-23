@@ -1,7 +1,8 @@
+local rt = require("rust-tools")
+
 local opts = {
     tools = {
         autoSetHints = true,
-        hover_with_actions = true,
         runnables = {
             use_telescope = true
         },
@@ -10,6 +11,10 @@ local opts = {
     -- these override the defaults set by rust-tools.nvim
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
     server = {
+        on_attach = function(_, bufnr)
+           -- Hover actions
+           vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
+        end,
         settings = {
             -- to enable rust-analyzer settings visit:
             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
@@ -47,4 +52,4 @@ local opts = {
     },
 }
 
-require('rust-tools').setup(opts)
+rt.setup(opts)
