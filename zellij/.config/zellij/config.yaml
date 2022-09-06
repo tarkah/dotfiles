@@ -50,6 +50,8 @@ keybinds:
           key: [Char: '|',]
         - action: [NewPane: Down, SwitchToMode: Locked,]
           key: [Char: '-',]
+        - action: [NewPane:, SwitchToMode: Locked,]
+          key: [Char: 'n',]
         - action: [CloseFocus, SwitchToMode: Locked,]
           key: [Char: 'x',]
         - action: [NewTab: , SwitchToMode: Locked,]
