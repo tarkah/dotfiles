@@ -14,6 +14,8 @@ SAVEHIST=1000
 # Bindings
 bindkey -e
 bindkey '^ ' autosuggest-accept
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 # Aliases
 alias ll="ls -al --color"
