@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
     -- LSP config
     use { "neovim/nvim-lspconfig", config = [[ require('plugins/lspconfig') ]] }
     use { 'simrat39/rust-tools.nvim', config = [[ require('plugins/rust-tools') ]] }
+    use { 'jose-elias-alvarez/null-ls.nvim', config = [[ require('plugins/null-ls') ]] }
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[ require('plugins/nvim-treesitter') ]] }
