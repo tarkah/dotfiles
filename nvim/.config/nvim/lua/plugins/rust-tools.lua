@@ -45,6 +45,7 @@ local opts = {
                         "-A", "clippy::upper_case_acronyms",
                         "-A", "clippy::redundant_closure",
                         "-A", "clippy::many-single-char-names",
+                        "-A", "clippy::obfuscated_if_else",
                     },
                 },
             }
