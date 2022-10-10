@@ -19,7 +19,9 @@ return require('packer').startup(function(use)
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[ require('plugins/nvim-treesitter') ]] }
 
     -- Color
-    use { "sainnhe/gruvbox-material", config = [[ require('plugins/gruvbox-material') ]] }
+    -- use { "sainnhe/gruvbox-material", config = [[ require('plugins/gruvbox-material') ]] }
+    use { "Mofiqul/dracula.nvim", config = [[ require('plugins/dracula') ]] }
+
 
     -- Auto completion
     use { 'hrsh7th/nvim-cmp', config = [[ require('plugins/nvim-cmp') ]] }
@@ -39,7 +41,7 @@ return require('packer').startup(function(use)
         config = [[ require('plugins/telescope') ]]
     }
     use { 'nvim-telescope/telescope-ui-select.nvim' }
-    use { 'stevearc/dressing.nvim', config = [[ require('plugins/dressing') ]] }
+    use { 'stevearc/dressing.nvim' }
 
     -- Whichkey
     use { "folke/which-key.nvim", config = [[ require('plugins/which-key') ]] }

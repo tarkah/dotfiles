@@ -2,7 +2,7 @@
 default_mode: locked
 default_layout: default
 default_shell: zsh
-theme: default
+theme: dracula
 on_force_close: quit
 pane_frames: false
 scrollback_editor: /usr/bin/nvim
@@ -10,7 +10,7 @@ copy_on_select: true
 mouse_mode: true
 
 themes:
-  default:
+  gruvbox:
     bg: '#45403d'
     fg: '#a89984'
     black: '#3c3836'
@@ -23,6 +23,19 @@ themes:
     cyan: '#689d6a'
     white: '#ebdbb2'
     orange: '#d65d0e'
+  dracula:
+    fg: [248, 248, 242]
+    bg: '#44475a'
+    black: '#44475a'
+    gray: [68, 71, 90]
+    red: [255, 85, 85]
+    green: [80, 250, 123]
+    yellow: [241, 250, 140]
+    blue: [98, 114, 164]
+    magenta: [255, 121, 198]
+    cyan: [139, 233, 253]
+    white: [255, 255, 255]
+    orange: [255, 184, 108]
 
 plugins:
     - path: tab-bar
