@@ -7,7 +7,7 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 
 -- auto format
 cmd([[
-autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
+autocmd BufWritePre * lua vim.lsp.buf.format({ filter = function(client) return client.name ~= "tsserver" end })
 ]])
 
 -- update stale but unmodified buffers
