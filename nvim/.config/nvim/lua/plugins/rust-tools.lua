@@ -19,10 +19,12 @@ local opts = {
             -- to enable rust-analyzer settings visit:
             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
             ["rust-analyzer"] = {
-                assist = {
-                    importGranularity = "module",
-                    importPrefix = "self",
-                    importEnforceGranularity = true,
+                imports = {
+                    prefix = "self",
+                    granularity = {
+                        enforce = true,
+                        group = "module",
+                    },
                 },
                 -- enable clippy on save
                 checkOnSave = {
