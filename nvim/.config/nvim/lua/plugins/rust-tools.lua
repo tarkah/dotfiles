@@ -56,6 +56,7 @@ local opts = {
                         "-A", "clippy::redundant_closure",
                         "-A", "clippy::many-single-char-names",
                         "-A", "clippy::obfuscated_if_else",
+                        "-A", "clippy::result_large_err",
                     },
                 },
             }
