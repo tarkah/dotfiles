@@ -2,7 +2,9 @@ local rt = require("rust-tools")
 
 local opts = {
     tools = {
-        autoSetHints = true,
+        inlay_hints = {
+            only_current_line = true,
+        },
         runnables = {
             use_telescope = true
         },
