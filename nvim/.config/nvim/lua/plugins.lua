@@ -19,8 +19,9 @@ return require('packer').startup(function(use)
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[ require('plugins/nvim-treesitter') ]] }
 
     -- Color
-    -- use { "sainnhe/gruvbox-material", config = [[ require('plugins/gruvbox-material') ]] }
-    use { "Mofiqul/dracula.nvim", config = [[ require('plugins/dracula') ]] }
+    --use { "sainnhe/gruvbox-material", config = [[ require('plugins/colorscheme') ]] }
+    --use { "Mofiqul/dracula.nvim", config = [[ require('plugins/colorscheme') ]] }
+    use { "shaunsingh/nord.nvim", config = [[ require('plugins/colorscheme') ]] }
 
 
     -- Auto completion
