@@ -20,7 +20,6 @@ bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 
-
 # Aliases
 alias ll="ls -al --color"
 alias vi="nvim"
@@ -40,9 +39,12 @@ case `uname` in
 esac
 
 # Sourcing
-. "$HOME/.cargo/env"
-. "$HOME/.base16_theme"
-. "$HOME/.zshrc_local"
+function __source () [ -f $1 ] && . $1
+__source "$HOME/.cargo/env"
+__source "$HOME/.base16_theme"
+__source "$HOME/.zshrc_local"
+__source "$HOME/.ghcup/env"
+unfunction __source
 
 # Path
 path=($HOME/.local/bin $path)
@@ -50,4 +52,3 @@ export PATH
 
 # Eval
 eval "$(starship init zsh)"
-
