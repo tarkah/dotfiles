@@ -22,7 +22,7 @@ bindkey "^[[3~" delete-char
 
 # Aliases
 alias ll="ls -al --color"
-alias nvim="nix develop ~/dotfiles/nvim -c 'nvim'"
+alias nvim="nix run ~/dotfiles/nvim"
 alias vi="nvim"
 alias vim='nvim'
 
