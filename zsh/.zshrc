@@ -22,18 +22,17 @@ bindkey "^[[3~" delete-char
 
 # Aliases
 alias ll="ls -al --color"
+alias nvim="nix develop ~/dotfiles/nvim -c 'nvim'"
 alias vi="nvim"
 alias vim='nvim'
 
 # OS specific
 case `uname` in
     Darwin)
-        path+=($HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin)
         . /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
         eval "$(/opt/homebrew/bin/brew shellenv)"
     ;;
     Linux)
-        path+=($HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin)
         . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     ;;
 esac
