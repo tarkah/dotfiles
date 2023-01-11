@@ -1,3 +1,10 @@
+{ pkgs, ... }:
+
+let 
+    fontSize = if pkgs.isDarwin then "14.0" else "11.0";
+in
+
+''
 env:
   TERM: xterm-256color
 shell:
@@ -14,7 +21,8 @@ font:
     style: Italic
   bold_italic:
     family: Hack Nerd Font
-  size: 11.0
+  size: ${fontSize}
 key_bindings:
   - { key: Right, mods: Alt, chars: "\x1BF" }
   - { key: Left,  mods: Alt, chars: "\x1BB" }
+''

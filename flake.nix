@@ -20,6 +20,9 @@
 
         overlays = [
           neovim-flake.overlays.${system}.default
+          (_: _: {
+            isDarwin = system == "aarch64-darwin";
+          })
         ];
       };
     in {

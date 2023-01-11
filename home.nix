@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
 
 let 
-  isDarwin = pkgs.system == "aarch64-darwin";
-in {
-
+    alacritty = import ./alacritty/alacritty.nix {
+        inherit pkgs;
+    };
+in
+{
   home.username = "tarkah";
-  home.homeDirectory = if isDarwin
+  home.homeDirectory = if pkgs.isDarwin
     then "/Users/tarkah"
     else "/home/tarkah";
 
@@ -25,7 +27,7 @@ in {
           ll = "ls -al";
           vi = "nvim";
           vim = "nvim";
-          update = if isDarwin 
+          update = if pkgs.isDarwin 
             then "home-manager switch --flake .#tarkah@darwin" 
             else "home-manager switch --flake .#tarkah";
       };
@@ -70,7 +72,10 @@ in {
       configFile."starship.toml" = {
           source = ./starship/starship.toml;
       };
+
+      configFile."alacritty/alacritty.yml".text = alacritty;
   };
 
   home.file.".base16_theme".source = ./.base16_theme;
+  home.file.".tmux.conf".source = ./tmux/.tmux.conf;
 }
