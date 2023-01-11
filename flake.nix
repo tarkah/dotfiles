@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-flake = {
-      url = "path:./nvim";
+      url = "git+file:./nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
