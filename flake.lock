@@ -42,14 +42,15 @@
         "neovim-session-manager": "neovim-session-manager",
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "rust-tools-nvim": "rust-tools-nvim"
       },
       "locked": {
-        "lastModified": 1673414291,
-        "narHash": "sha256-OYZ683WvKCDwihG5EaDfuICsfj5puv+m4imMrS2J+y0=",
+        "lastModified": 1673455788,
+        "narHash": "sha256-crreK4/qIG+uiRhaOFB/OTx8q9tNi2kqzXgmdmcIsuQ=",
         "ref": "refs/heads/master",
-        "rev": "b451378ae46a877d30a3cfee447cac64fc7a4920",
-        "revCount": 3,
+        "rev": "5ff9b5059bc253014bb1180113ee2d863e3c20d9",
+        "revCount": 4,
         "type": "git",
         "url": "file:./nvim"
       },
@@ -76,11 +77,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1673226411,
-        "narHash": "sha256-b6cGb5Ln7Zy80YO66+cbTyGdjZKtkoqB/iIIhDX9gRA=",
+        "lastModified": 1673315479,
+        "narHash": "sha256-GNCFRtDHjTygXGJp/H+f2XQPMGxpYSmNiibIqYzihtM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "aa1d74709f5dac623adb4d48fdfb27cc2c92a4d4",
+        "rev": "c07552f6f7d4eead7806645ec03f7f1eb71ba6bd",
         "type": "github"
       },
       "original": {
@@ -95,6 +96,22 @@
         "home-manager": "home-manager",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs"
+      }
+    },
+    "rust-tools-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673136837,
+        "narHash": "sha256-+/kK6MU2EiSBFbfqQJwLkJICXZpf8oiShbcvsls3V8A=",
+        "owner": "simrat39",
+        "repo": "rust-tools.nvim",
+        "rev": "df584e84393ef255f5b8cbd709677d6a3a5bf42f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "simrat39",
+        "repo": "rust-tools.nvim",
+        "type": "github"
       }
     },
     "utils": {
