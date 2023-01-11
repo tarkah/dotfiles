@@ -27,7 +27,6 @@
         pkgs = packages "x86_64-linux";
 
         modules = [ 
-          ./linux.nix
           ./home.nix
         ];
       };
@@ -36,7 +35,6 @@
         pkgs = packages "aarch64-darwin";
 
         modules = [ 
-          ./darwin.nix
           ./home.nix
         ];
       };
