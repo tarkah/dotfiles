@@ -15,8 +15,7 @@
 
   outputs = { nixpkgs, home-manager, neovim-flake, ... }:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
+      packages = system: import nixpkgs {
         inherit system;
 
         overlays = [
@@ -25,9 +24,19 @@
       };
     in {
       homeConfigurations.tarkah = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = packages "x86_64-linux";
 
         modules = [ 
+          ./linux.nix
+          ./home.nix
+        ];
+      };
+
+      homeConfigurations."tarkah@darwin" = home-manager.lib.homeManagerConfiguration {
+        pkgs = packages "aarch64-darwin";
+
+        modules = [ 
+          ./darwin.nix
           ./home.nix
         ];
       };
