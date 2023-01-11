@@ -43,6 +43,7 @@ __source "$HOME/.cargo/env"
 __source "$HOME/.base16_theme"
 __source "$HOME/.zshrc_local"
 __source "$HOME/.ghcup/env"
+__source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 unfunction __source
 
 # Path
