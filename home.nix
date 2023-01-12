@@ -1,21 +1,22 @@
 { config, pkgs, ... }:
 
-let 
-    stdenv = pkgs.stdenv;
-    alacritty = import ./alacritty/alacritty.nix {
-        inherit stdenv;
-    };
+let
+  stdenv = pkgs.stdenv;
+  alacritty = import ./alacritty/alacritty.nix {
+    inherit stdenv;
+  };
 in
 {
   home.username = "tarkah";
-  home.homeDirectory = if stdenv.isDarwin
+  home.homeDirectory =
+    if stdenv.isDarwin
     then "/Users/tarkah"
     else "/home/tarkah";
 
   home.stateVersion = "22.11";
 
-  home.packages = with pkgs; [ 
-    neovim 
+  home.packages = with pkgs; [
+    neovim
   ];
 
   programs = {
@@ -26,14 +27,15 @@ in
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
       shellAliases = {
-          ls = "ls --color=auto";
-          ll = "ls -al";
-          vi = "nvim";
-          vim = "nvim";
-          update = if stdenv.isDarwin 
-            then "home-manager switch --flake .#tarkah@darwin" 
-            else "home-manager switch --flake .#tarkah";
-          develop = "nix develop path:$(pwd)/.nix";
+        ls = "ls --color=auto";
+        ll = "ls -al";
+        vi = "nvim";
+        vim = "nvim";
+        update =
+          if stdenv.isDarwin
+          then "home-manager switch --flake .#tarkah@darwin"
+          else "home-manager switch --flake .#tarkah@linux";
+        develop = "nix develop path:$(pwd)/.nix";
       };
       initExtra = ''
         # Fpath
@@ -71,18 +73,18 @@ in
   };
 
   xdg = {
-      enable = true;
+    enable = true;
 
-      configFile."zellij" = {
-          source = ./zellij;
-          recursive = true;
-      };
+    configFile."zellij" = {
+      source = ./zellij;
+      recursive = true;
+    };
 
-      configFile."starship.toml" = {
-          source = ./starship/starship.toml;
-      };
+    configFile."starship.toml" = {
+      source = ./starship/starship.toml;
+    };
 
-      configFile."alacritty/alacritty.yml".text = alacritty;
+    configFile."alacritty/alacritty.yml".text = alacritty;
   };
 
   home.file.".base16_theme".source = ./.base16_theme;

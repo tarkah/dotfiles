@@ -13,29 +13,37 @@
   };
 
   outputs = { nixpkgs, home-manager, neovim-flake, ... }:
+    with builtins;
+
     let
-      packages = system: import nixpkgs {
-        inherit system;
+      systems = [
+        { system = "x86_64-linux"; name = "linux"; }
+        { system = "aarch64-darwin"; name = "darwin"; }
+      ];
 
-        overlays = [
-          neovim-flake.overlays.${system}.default
-        ];
-      };
-    in {
-      homeConfigurations.tarkah = home-manager.lib.homeManagerConfiguration {
-        pkgs = packages "x86_64-linux";
+      homeConfigs = config:
+        listToAttrs
+          (map
+            ({ system, name }: {
+              name = "tarkah@${name}";
+              value = home-manager.lib.homeManagerConfiguration (config system);
+            })
+            systems);
 
-        modules = [ 
+    in
+    {
+      homeConfigurations = homeConfigs (system: {
+        pkgs = import nixpkgs {
+          inherit system;
+
+          overlays = [
+            neovim-flake.overlays.${system}.default
+          ];
+        };
+
+        modules = [
           ./home.nix
         ];
-      };
-
-      homeConfigurations."tarkah@darwin" = home-manager.lib.homeManagerConfiguration {
-        pkgs = packages "aarch64-darwin";
-
-        modules = [ 
-          ./home.nix
-        ];
-      };
+      });
     };
 }
