@@ -30,6 +30,7 @@ in
           update = if pkgs.isDarwin 
             then "home-manager switch --flake .#tarkah@darwin" 
             else "home-manager switch --flake .#tarkah";
+          develop = "nix develop path:$(pwd)/.nix";
       };
       initExtra = ''
         # Fpath
