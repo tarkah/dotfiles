@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ stdenv, ... }:
 
 let 
-    fontSize = if pkgs.isDarwin then "14.0" else "11.0";
+    fontSize = if stdenv.isDarwin then "14.0" else "11.0";
 in
 
 ''

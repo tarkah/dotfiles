@@ -1,19 +1,22 @@
 { config, pkgs, ... }:
 
 let 
+    stdenv = pkgs.stdenv;
     alacritty = import ./alacritty/alacritty.nix {
-        inherit pkgs;
+        inherit stdenv;
     };
 in
 {
   home.username = "tarkah";
-  home.homeDirectory = if pkgs.isDarwin
+  home.homeDirectory = if stdenv.isDarwin
     then "/Users/tarkah"
     else "/home/tarkah";
 
   home.stateVersion = "22.11";
 
-  home.packages = [ pkgs.neovim ];
+  home.packages = with pkgs; [ 
+    neovim 
+  ];
 
   programs = {
     home-manager.enable = true;
@@ -27,7 +30,7 @@ in
           ll = "ls -al";
           vi = "nvim";
           vim = "nvim";
-          update = if pkgs.isDarwin 
+          update = if stdenv.isDarwin 
             then "home-manager switch --flake .#tarkah@darwin" 
             else "home-manager switch --flake .#tarkah";
           develop = "nix develop path:$(pwd)/.nix";
@@ -60,6 +63,11 @@ in
 
     zellij.enable = true;
     starship.enable = true;
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
 
   xdg = {
