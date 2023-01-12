@@ -9,7 +9,6 @@
     };
     neovim-flake = {
       url = "git+file:./nvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
