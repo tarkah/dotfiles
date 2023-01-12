@@ -16,6 +16,8 @@
     with builtins;
 
     let
+      user = "tarkah";
+
       systems = [
         { system = "x86_64-linux"; name = "linux"; }
         { system = "aarch64-darwin"; name = "darwin"; }
@@ -25,7 +27,7 @@
         listToAttrs
           (map
             ({ system, name }: {
-              name = "tarkah@${name}";
+              name = "${user}@${name}";
               value = home-manager.lib.homeManagerConfiguration (config system);
             })
             systems);
@@ -42,8 +44,10 @@
         };
 
         modules = [
-          ./home.nix
+          ./home.nix 
         ];
+
+        extraSpecialArgs = { inherit user; };
       });
     };
 }

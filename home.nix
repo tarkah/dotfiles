@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 let
   stdenv = pkgs.stdenv;
@@ -7,11 +7,11 @@ let
   };
 in
 {
-  home.username = "tarkah";
+  home.username = user;
   home.homeDirectory =
     if stdenv.isDarwin
-    then "/Users/tarkah"
-    else "/home/tarkah";
+    then "/Users/${user}"
+    else "/home/${user}";
 
   home.stateVersion = "22.11";
 
