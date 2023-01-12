@@ -44,11 +44,11 @@
         "rust-tools-nvim": "rust-tools-nvim"
       },
       "locked": {
-        "lastModified": 1673551053,
-        "narHash": "sha256-gn5coAPGxGvzMPgi3fxOnYPMhLBkVE9cLUnF+OWrpc0=",
+        "lastModified": 1673551959,
+        "narHash": "sha256-p/E1cVxP5tU/H7dHSyAmLoYMWui94uyXc4QOclmHjLQ=",
         "ref": "refs/heads/master",
-        "rev": "bc5f3f08f8ee9b9a05360f079792c38aaec3beba",
-        "revCount": 7,
+        "rev": "37dedd42bec41151561ece26d0d45a7ad690dfe1",
+        "revCount": 8,
         "type": "git",
         "url": "file:./nvim"
       },
