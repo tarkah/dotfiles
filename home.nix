@@ -29,6 +29,7 @@ in
       shellAliases = {
         ls = "ls --color=auto";
         ll = "ls -al";
+        nvim = "[ -d \".nix\" ] && nix run path:./.nix || nvim";
         vi = "nvim";
         vim = "nvim";
         update =
@@ -65,11 +66,6 @@ in
 
     zellij.enable = true;
     starship.enable = true;
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
   };
 
   xdg = {
