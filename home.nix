@@ -33,7 +33,6 @@ in
       shellAliases = {
         ls = "ls --color=auto";
         ll = "ls -al";
-        nvim = "[ -d \".nix\" ] && nix run path:./.nix || nvim";
         vi = "nvim";
         vim = "nvim";
         update =
@@ -66,6 +65,9 @@ in
         # Path
         path=($HOME/.local/bin $path)
         export PATH
+
+        # Functions
+        function nvim() [ -d ".nix" ] && nix run path:./.nix -- "$@" || command nvim "$@"
       '';
     };
 
