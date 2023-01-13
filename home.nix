@@ -37,6 +37,7 @@ in
           then "home-manager switch --flake .#tarkah@darwin"
           else "home-manager switch --flake .#tarkah@linux";
         develop = "nix develop path:$(pwd)/.nix";
+        z = "zellij attach -c default";
       };
       initExtra = ''
         # Fpath
