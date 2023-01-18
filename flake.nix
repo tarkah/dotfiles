@@ -38,6 +38,10 @@
         pkgs = import nixpkgs {
           inherit system;
 
+          config = {
+              allowUnfree = true;
+          };
+
           overlays = [
             neovim-flake.overlays.${system}.default
           ];

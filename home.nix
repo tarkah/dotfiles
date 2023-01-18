@@ -7,24 +7,33 @@ let
   };
 in
 {
-  home.username = user;
-  home.homeDirectory =
-    if stdenv.isDarwin
-    then "/Users/${user}"
-    else "/home/${user}";
+  home = {
+    username = user;
+    stateVersion = "22.11";
 
-  home.stateVersion = "22.11";
+    homeDirectory =
+      if stdenv.isDarwin
+      then "/Users/${user}"
+      else "/home/${user}";
 
-  home.packages = with pkgs; [
-    neovim
-  ];
+    packages = with pkgs; [
+      neovim
+    ];
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
+
+    file.".base16_theme".source = ./.base16_theme;
+    file.".tmux.conf".source = ./tmux/.tmux.conf;
   };
+
+  targets.genericLinux.enable = stdenv.isLinux;
 
   programs = {
     home-manager.enable = true;
+
+    bash.enable = stdenv.isLinux;
 
     zsh = {
       enable = true;
@@ -89,7 +98,4 @@ in
 
     configFile."alacritty/alacritty.yml".text = alacritty;
   };
-
-  home.file.".base16_theme".source = ./.base16_theme;
-  home.file.".tmux.conf".source = ./tmux/.tmux.conf;
 }
