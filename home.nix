@@ -18,7 +18,6 @@ in
 
     packages = with pkgs; [
       neovim
-      sublime-merge
     ];
 
     sessionVariables = {
