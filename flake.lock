@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "diffview-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1674148536,
+        "narHash": "sha256-xLdb93Bm1omjzHoRBHicO82iEul/VjSPfxV1onMSK/A=",
+        "owner": "tarkah",
+        "repo": "diffview.nvim",
+        "rev": "b904050b016e055c387d4a6d4cb4091c05e1d80c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tarkah",
+        "ref": "feat/inline-diff",
+        "repo": "diffview.nvim",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1667395993,
@@ -12,6 +29,23 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "gitsigns-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670366543,
+        "narHash": "sha256-Qqt+D9M9gB0fGK1pmpr9e3ChDccwJmu1Yh3xrOuHwaE=",
+        "owner": "sindrets",
+        "repo": "gitsigns.nvim",
+        "rev": "15d422058d380d02b7a0080e4da562b419ef58bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sindrets",
+        "ref": "feat/general-attach",
+        "repo": "gitsigns.nvim",
         "type": "github"
       }
     },
@@ -54,18 +88,20 @@
     },
     "neovim-flake": {
       "inputs": {
+        "diffview-nvim": "diffview-nvim",
         "flake-utils": "flake-utils",
+        "gitsigns-nvim": "gitsigns-nvim",
         "lualine-nvim": "lualine-nvim",
         "neovim-session-manager": "neovim-session-manager",
         "nixpkgs": "nixpkgs",
         "rust-tools-nvim": "rust-tools-nvim"
       },
       "locked": {
-        "lastModified": 1673568288,
-        "narHash": "sha256-bvYjctOxerEdqaspxRZnvcH4uQWwFs4qf5Lzs8CRpz4=",
+        "lastModified": 1674148842,
+        "narHash": "sha256-cnJq+d+TBWASPoSpysfrkyfCyMUk+9s13Yuwv4gXzj0=",
         "ref": "refs/heads/master",
-        "rev": "e2f7a5aabf87dc1075100a96e8256be07aacfed6",
-        "revCount": 9,
+        "rev": "9d4f3eba45152ea9e466448266a98905033c5fa4",
+        "revCount": 10,
         "type": "git",
         "url": "file:./nvim"
       },
