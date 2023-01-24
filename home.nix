@@ -94,6 +94,7 @@ in
 
     zellij.enable = true;
     starship.enable = true;
+    go.enable = true;
   };
 
   xdg = {
