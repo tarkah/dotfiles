@@ -5,6 +5,7 @@ let
   alacritty = import ./alacritty/alacritty.nix {
     inherit stdenv;
   };
+  writeIf = cond: message: if cond then message else "";
 in
 {
   home = {
@@ -85,6 +86,9 @@ in
 
         # Path
         path=($HOME/.local/bin $path)
+        ${writeIf stdenv.isDarwin ''
+        path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
+        ''}
         export PATH
 
         # Functions
