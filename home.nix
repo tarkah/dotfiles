@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, user, lib, ... }:
 
 let
   stdenv = pkgs.stdenv;
@@ -28,7 +28,7 @@ in
     file.".tmux.conf".source = ./tmux/.tmux.conf;
 
     activation = {
-      linkDesktopApplications = {
+      linkDesktopApplications = lib.mkIf stdenv.isLinux {
         after = [ "writeBoundary" "createXdgUserDirectories" ];
         before = [ ];
         data = ''
