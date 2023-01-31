@@ -1,10 +1,9 @@
-{ stdenv, ... }:
-
-let
-  fontSize = if stdenv.isDarwin then "14.0" else "11.0";
-in
-
-''
+{stdenv, ...}: let
+  fontSize =
+    if stdenv.isDarwin
+    then "14.0"
+    else "11.0";
+in ''
   env:
     TERM: xterm-256color
   shell:

@@ -12,34 +12,44 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, neovim-flake, ... }:
-    with builtins;
-
-    let
+  outputs = {
+    nixpkgs,
+    home-manager,
+    neovim-flake,
+    ...
+  }:
+    with builtins; let
       user = "tarkah";
 
       systems = [
-        { system = "x86_64-linux"; name = "linux"; }
-        { system = "aarch64-darwin"; name = "darwin"; }
+        {
+          system = "x86_64-linux";
+          name = "linux";
+        }
+        {
+          system = "aarch64-darwin";
+          name = "darwin";
+        }
       ];
 
       homeConfigs = config:
         listToAttrs
-          (map
-            ({ system, name }: {
-              name = "${user}@${name}";
-              value = home-manager.lib.homeManagerConfiguration (config system);
-            })
-            systems);
-
-    in
-    {
+        (map
+          ({
+            system,
+            name,
+          }: {
+            name = "${user}@${name}";
+            value = home-manager.lib.homeManagerConfiguration (config system);
+          })
+          systems);
+    in {
       homeConfigurations = homeConfigs (system: {
         pkgs = import nixpkgs {
           inherit system;
 
           config = {
-              allowUnfree = true;
+            allowUnfree = true;
           };
 
           overlays = [
@@ -48,10 +58,10 @@
         };
 
         modules = [
-          ./home.nix 
+          ./home.nix
         ];
 
-        extraSpecialArgs = { inherit user; };
+        extraSpecialArgs = {inherit user;};
       });
     };
 }

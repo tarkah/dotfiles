@@ -1,13 +1,19 @@
-{ config, pkgs, user, lib, ... }:
-
-let
+{
+  config,
+  pkgs,
+  user,
+  lib,
+  ...
+}: let
   stdenv = pkgs.stdenv;
   alacritty = import ./alacritty/alacritty.nix {
     inherit stdenv;
   };
-  writeIf = cond: message: if cond then message else "";
-in
-{
+  writeIf = cond: message:
+    if cond
+    then message
+    else "";
+in {
   home = {
     username = user;
     stateVersion = "22.11";
@@ -30,8 +36,8 @@ in
 
     activation = {
       linkDesktopApplications = lib.mkIf stdenv.isLinux {
-        after = [ "writeBoundary" "createXdgUserDirectories" ];
-        before = [ ];
+        after = ["writeBoundary" "createXdgUserDirectories"];
+        before = [];
         data = ''
           rm -rf ${config.xdg.dataHome}/"applications/home-manager"
           mkdir -p ${config.xdg.dataHome}/"applications/home-manager"
@@ -87,7 +93,7 @@ in
         # Path
         path=($HOME/.local/bin $path)
         ${writeIf stdenv.isDarwin ''
-        path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
+          path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
         ''}
         export PATH
 
