@@ -5,7 +5,7 @@
     else "11.0";
 in ''
   env:
-    TERM: xterm-256color
+    TERM: alacritty
   shell:
     program: zsh
   font:
