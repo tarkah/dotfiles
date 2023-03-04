@@ -7,7 +7,7 @@ in ''
   env:
     TERM: xterm-256color
   shell:
-    program: /bin/zsh
+    program: zsh
   font:
     normal:
       family: Hack Nerd Font
