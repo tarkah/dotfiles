@@ -54,7 +54,7 @@ plugins {
     tab-bar { path "tab-bar"; }
     status-bar { path "status-bar"; }
     strider { path "strider"; }
-    compact-bar { path "/home/tarkah/.local/share/zellij/plugins/bare-bar.wasm"; }
+    compact-bar { path "compact-bar"; }
 }
 
 keybinds clear-defaults=true {
