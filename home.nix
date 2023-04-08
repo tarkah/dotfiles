@@ -31,7 +31,6 @@ in {
       EDITOR = "nvim";
     };
 
-    file.".base16_theme".source = ./.base16_theme;
     file.".tmux.conf".source = ./tmux/.tmux.conf;
 
     activation = {
@@ -77,7 +76,6 @@ in {
         # Sourcing
         function __source () [ -f $1 ] && . $1
         __source "$HOME/.cargo/env"
-        __source "$HOME/.base16_theme"
         __source "$HOME/.ghcup/env"
         unfunction __source
 

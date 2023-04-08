@@ -1,7 +1,7 @@
 default_mode "locked"
 default_layout "default"
 default_shell "zsh"
-theme "nord"
+theme "ferra"
 on_force_close "quit"
 pane_frames false
 scrollback_editor "/usr/bin/nvim"
@@ -47,6 +47,19 @@ themes {
         cyan 136 192 208 // #88C0D0
         white 229 233 240 // #E5E9F0
         orange 208 135 112 // #D08770
+    }
+    ferra {
+        fg "#fecdb2"
+        bg "#2b292d"
+        black "#383539"
+        red "#e06b75"
+        green "#9f9f7c"
+        yellow "#fff27a"
+        blue "#e88c6f"
+        magenta "#ffb9cc"
+        cyan "#ffb9cc"
+        white "#ffffff"
+        orange "#ffa07a"
     }
 }
 
