@@ -118,5 +118,9 @@ in {
     };
 
     configFile."alacritty/alacritty.yml".text = alacritty;
+
+    configFile."helix/config.toml" = {
+      source = ./helix/config.toml;
+    };
   };
 }
