@@ -60,7 +60,6 @@ in {
       shellAliases = {
         ls = "ls --color=auto";
         ll = "ls -al";
-        vi = "nvim";
         vim = "nvim";
         update =
           if stdenv.isDarwin
