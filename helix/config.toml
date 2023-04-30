@@ -3,6 +3,7 @@ theme = "ferra"
 [editor]
 line-number = "relative"
 mouse = false
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
