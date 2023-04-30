@@ -10,12 +10,17 @@
     neovim-flake = {
       url = "git+file:./nvim";
     };
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     neovim-flake,
+    helix,
     ...
   }:
     with builtins; let
@@ -54,6 +59,9 @@
 
           overlays = [
             neovim-flake.overlays.${system}.default
+            (f: p: {
+              inherit (helix.packages.${system}) helix-dev;
+            })
           ];
         };
 

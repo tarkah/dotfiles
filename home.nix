@@ -25,10 +25,11 @@ in {
 
     packages = with pkgs; [
       neovim
+      helix-dev
     ];
 
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "hx";
     };
 
     file.".tmux.conf".source = ./tmux/.tmux.conf;
