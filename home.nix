@@ -25,7 +25,7 @@ in {
 
     packages = with pkgs; [
       neovim
-      helix-dev
+      helix
     ];
 
     sessionVariables = {

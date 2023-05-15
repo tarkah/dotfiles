@@ -2,7 +2,7 @@ theme = "ferra"
 
 [editor]
 line-number = "relative"
-mouse = false
+mouse = true
 true-color = true
 
 [editor.cursor-shape]
@@ -13,6 +13,8 @@ select = "underline"
 [keys.normal]
 C-s = ":write"
 "=" = ":format"
+"+" = "increment"
+"minus" = "decrement"
 
 [keys.insert]
 C-c = "normal_mode"

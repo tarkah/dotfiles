@@ -11,7 +11,7 @@
       url = "git+file:./nvim";
     };
     helix = {
-      url = "github:helix-editor/helix";
+      url = "github:tarkah/helix/command/parent-module";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -60,7 +60,7 @@
           overlays = [
             neovim-flake.overlays.${system}.default
             (f: p: {
-              inherit (helix.packages.${system}) helix-dev;
+              inherit (helix.packages.${system}) helix;
             })
           ];
         };
