@@ -50,8 +50,8 @@ themes {
     }
     ferra {
         fg "#fecdb2"
-        bg "#2b292d"
-        black "#383539"
+        bg "#4D424C" // Really this is selection color
+        black "#393538"
         red "#e06b75"
         green "#9f9f7c"
         yellow "#fff27a"
