@@ -31,8 +31,6 @@ in {
       EDITOR = "hx";
     };
 
-    file.".tmux.conf".source = ./tmux/.tmux.conf;
-
     activation = {
       linkDesktopApplications = lib.mkIf stdenv.isLinux {
         after = ["writeBoundary" "createXdgUserDirectories"];
