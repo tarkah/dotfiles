@@ -24,7 +24,6 @@ in {
       else "/home/${user}";
 
     packages = with pkgs; [
-      neovim
       helix
     ];
 
@@ -61,7 +60,6 @@ in {
       shellAliases = {
         ls = "ls --color=auto";
         ll = "ls -al";
-        vim = "nvim";
         update =
           if stdenv.isDarwin
           then "home-manager switch --flake .#tarkah@darwin"
@@ -94,9 +92,6 @@ in {
           path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
         ''}
         export PATH
-
-        # Functions
-        function nvim() [ -d ".nix" ] && nix run path:./.nix -- "$@" || command nvim "$@"
       '';
     };
 

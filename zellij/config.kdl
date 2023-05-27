@@ -4,7 +4,7 @@ default_shell "zsh"
 theme "ferra"
 on_force_close "quit"
 pane_frames false
-scrollback_editor "/usr/bin/nvim"
+scrollback_editor "hx"
 copy_on_select true
 mouse_mode true
 

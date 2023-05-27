@@ -5,10 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    neovim-flake = {
-      url = "git+file:./nvim";
     };
     helix = {
       url = "github:tarkah/helix/command/parent-module";
@@ -19,7 +15,6 @@
   outputs = {
     nixpkgs,
     home-manager,
-    neovim-flake,
     helix,
     ...
   }:
@@ -58,7 +53,6 @@
           };
 
           overlays = [
-            neovim-flake.overlays.${system}.default
             (f: p: {
               inherit (helix.packages.${system}) helix;
             })
