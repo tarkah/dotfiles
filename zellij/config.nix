@@ -1,3 +1,6 @@
+{ zellij-bare-bar }:
+
+''
 default_mode "locked"
 default_layout "default"
 default_shell "zsh"
@@ -68,6 +71,7 @@ plugins {
     status-bar { path "status-bar"; }
     strider { path "strider"; }
     compact-bar { path "compact-bar"; }
+    bare-bar { path "${zellij-bare-bar}/bin/bare-bar.wasm"; }
 }
 
 keybinds clear-defaults=true {
@@ -122,4 +126,4 @@ keybinds clear-defaults=true {
         bind "Enter" { SwitchToMode "locked"; }
     }
 }
-
+''

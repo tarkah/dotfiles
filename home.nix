@@ -9,6 +9,7 @@
   alacritty = import ./alacritty/alacritty.nix {
     inherit stdenv;
   };
+  zellij-config = pkgs.callPackage ./zellij/config.nix {};
   writeIf = cond: message:
     if cond
     then message
@@ -25,6 +26,7 @@ in {
 
     packages = with pkgs; [
       helix
+      nil
     ];
 
     sessionVariables = {
@@ -101,10 +103,8 @@ in {
   xdg = {
     enable = true;
 
-    configFile."zellij" = {
-      source = ./zellij;
-      recursive = true;
-    };
+    configFile."zellij/config.kdl".text = zellij-config;
+    configFile."zellij/layouts/default.kdl".source = ./zellij/layouts/default.kdl;
 
     configFile."starship.toml" = {
       source = ./starship/starship.toml;

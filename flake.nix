@@ -3,19 +3,32 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager";
+    naersk = {
+      url = "github:nmattia/naersk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     helix = {
       url = "github:tarkah/helix/command/parent-module";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zbb = {
+      url = "github:tarkah/zellij-bare-bar";
+      flake = false;      
     };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    naersk, 
+    rust-overlay,
     helix,
+    zbb,
     ...
   }:
     with builtins; let
@@ -43,6 +56,12 @@
             value = home-manager.lib.homeManagerConfiguration (config system);
           })
           systems);
+
+      zbbOverlay = _: p: {
+        zellij-bare-bar = p.callPackage ./packages/zellij-bare-bar.nix {
+          src = zbb;
+        };
+      };
     in {
       homeConfigurations = homeConfigs (system: {
         pkgs = import nixpkgs {
@@ -52,10 +71,13 @@
             allowUnfree = true;
           };
 
-          overlays = [
-            (f: p: {
+          overlays = [ 
+            (import rust-overlay)
+            (_: _: {
               inherit (helix.packages.${system}) helix;
+              inherit naersk;
             })
+            zbbOverlay
           ];
         };
 
