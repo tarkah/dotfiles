@@ -18,14 +18,14 @@
     };
     zbb = {
       url = "github:tarkah/zellij-bare-bar";
-      flake = false;      
+      flake = false;
     };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
-    naersk, 
+    naersk,
     rust-overlay,
     helix,
     zbb,
@@ -71,7 +71,7 @@
             allowUnfree = true;
           };
 
-          overlays = [ 
+          overlays = [
             (import rust-overlay)
             (_: _: {
               inherit (helix.packages.${system}) helix;

@@ -10,6 +10,7 @@
     inherit stdenv;
   };
   zellij-config = pkgs.callPackage ./zellij/config.nix {};
+  helix-languages = pkgs.callPackage ./helix/languages.nix {};
   writeIf = cond: message:
     if cond
     then message
@@ -112,6 +113,7 @@ in {
 
     configFile."alacritty/alacritty.yml".text = alacritty;
 
+    configFile."helix/languages.toml".text = helix-languages;
     configFile."helix/config.toml" = {
       source = ./helix/config.toml;
     };
