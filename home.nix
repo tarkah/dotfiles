@@ -67,6 +67,7 @@ in {
           else "home-manager switch --flake .#tarkah@linux";
         develop = "nix develop path:$(pwd)/.nix";
         z = "zellij attach -c default";
+        dlang = "source $(~/.dlang/install.sh -p ~/.dlang install ldc -a)";
       };
       initExtra = ''
         # Fpath
