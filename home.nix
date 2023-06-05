@@ -94,6 +94,9 @@ in {
           path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
         ''}
         export PATH
+
+        # Env
+        export DC=ldc2
       '';
     };
 
