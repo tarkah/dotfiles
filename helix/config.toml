@@ -15,9 +15,3 @@ C-s = ":write"
 "=" = ":format"
 "+" = "increment"
 "minus" = "decrement"
-
-[keys.insert]
-C-c = "normal_mode"
-
-[keys.select]
-C-c = "normal_mode"
