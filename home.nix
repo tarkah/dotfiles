@@ -77,6 +77,7 @@ in {
         function __source () [ -f $1 ] && . $1
         __source "$HOME/.cargo/env"
         __source "$HOME/.ghcup/env"
+        __source "$HOME/.zshrc.local"
         unfunction __source
 
         # Bindings
