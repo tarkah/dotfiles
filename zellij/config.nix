@@ -76,6 +76,8 @@
       normal {
           bind "r" { SwitchToMode "resize"; }
           bind "m" { SwitchToMode "move"; }
+          bind "s" { SwitchToMode "scroll"; }
+          bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
           bind "d" { Detach; }
           bind "|" { NewPane "Right"; SwitchToMode "locked"; }
           bind "-" { NewPane "Down"; SwitchToMode "locked"; }
@@ -85,7 +87,7 @@
           bind "q" { CloseTab; SwitchToMode "locked"; }
           bind "w" { ToggleFloatingPanes; SwitchToMode "locked"; }
           bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
-          bind "," { SwitchToMode "RenameTab"; TabNameInput 0; }
+          bind "," { SwitchToMode "renametab"; TabNameInput 0; }
           bind "h" { MoveFocus "Left"; SwitchToMode "locked"; }
           bind "l" { MoveFocus "Right"; SwitchToMode "locked"; }
           bind "j" { MoveFocus "Down"; SwitchToMode "locked"; }
@@ -105,23 +107,57 @@
           bind "Ctrl a" { SwitchToMode "normal"; }
       }
       resize {
-          bind "Enter" "Ctrl c" { SwitchToMode "locked"; }
           bind "h" "Left" { Resize "Left"; }
           bind "j" "Down" { Resize "Down"; }
           bind "k" "Up" { Resize "Up"; }
           bind "l" "Right" { Resize "Right"; }
           bind "+" "=" { Resize "Increase"; }
           bind "-" { Resize "Decrease"; }
+          bind "Esc" { SwitchToMode "locked"; }
       }
       move {
-          bind "Enter" "Ctrl c" { SwitchToMode "locked"; }
           bind "h" "Left" { MovePane "Left"; }
           bind "j" "Down" { MovePane "Down"; }
           bind "k" "Up" { MovePane "Up"; }
           bind "l" "Right" { MovePane "Right"; }
+          bind "Esc" { SwitchToMode "locked"; }
       }
-      RenameTab {
+      renametab {
           bind "Enter" { SwitchToMode "locked"; }
+          bind "Esc" { UndoRenameTab; SwitchToMode "locked"; }
+      }
+      scroll {
+          bind "j" { ScrollDown; }
+          bind "k" { ScrollUp; }
+          bind "Ctrl u" { HalfPageScrollUp; }
+          bind "Ctrl d" { HalfPageScrollDown; }
+          bind "g" { ScrollToTop; }
+          bind "e" { ScrollToBottom; }
+          bind "i" { EditScrollback; SwitchToMode "locked"; }
+          bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
+          bind "Esc" { ScrollToBottom; SwitchToMode "locked"; }
+      }
+      entersearch {
+          bind "Enter" { SwitchToMode "search"; }
+          bind "Esc" { SwitchToMode "scroll"; }
+      }
+      search {
+          bind "j" { ScrollDown; }
+          bind "k" { ScrollUp; }
+          bind "Ctrl u" { HalfPageScrollUp; }
+          bind "Ctrl d" { HalfPageScrollDown; }
+          bind "g" { ScrollToTop; }
+          bind "e" { ScrollToBottom; }
+          bind "n" { Search "down"; }
+          bind "p" { Search "up"; }
+          bind "c" { SearchToggleOption "CaseSensitivity"; }
+          bind "w" { SearchToggleOption "Wrap"; }
+          bind "o" { SearchToggleOption "WholeWord"; }
+          // TODO: Copy doesn't work on search "selections", upstream fix
+          // bind "y" { Copy; }
+          bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
+          bind "Enter" { SwitchToMode "scroll"; }
+          bind "Esc" { ScrollToBottom; SwitchToMode "locked"; }
       }
   }
 ''
