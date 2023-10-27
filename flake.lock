@@ -176,12 +176,29 @@
         "type": "github"
       }
     },
+    "ranger": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1692788718,
+        "narHash": "sha256-nW4KlatugmPRPXl+XvV0/mo+DE5o8FLRrsJuiKbFGyY=",
+        "owner": "ranger",
+        "repo": "ranger",
+        "rev": "136416c7e2ecc27315fe2354ecadfe09202df7dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ranger",
+        "repo": "ranger",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "helix": "helix",
         "home-manager": "home-manager",
         "naersk": "naersk",
         "nixpkgs": "nixpkgs_2",
+        "ranger": "ranger",
         "rust-overlay": "rust-overlay_2",
         "zbb": "zbb"
       }
