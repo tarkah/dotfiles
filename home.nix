@@ -125,5 +125,6 @@ in {
     };
 
     configFile."ranger/rc.conf".source = ./ranger/rc.conf;
+    configFile."ranger/rifle.conf".source = ./ranger/rifle.conf;
   };
 }
