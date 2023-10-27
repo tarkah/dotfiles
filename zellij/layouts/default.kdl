@@ -3,4 +3,18 @@ layout {
     pane size=1 borderless=true {
         plugin location="zellij:bare-bar"
     }
+    floating_panes {
+        pane {
+            x "5%"
+            y "25%"
+            width "50%"
+            height "50%"
+        }
+        pane command="ranger" {
+            x "60%"
+            y 0
+            width "40%"
+            height "100%"
+        }
+    }
 }
