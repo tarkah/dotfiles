@@ -20,10 +20,6 @@
       url = "github:tarkah/zellij-bare-bar";
       flake = false;
     };
-    ranger = {
-      url = "github:ranger/ranger";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -33,7 +29,6 @@
     rust-overlay,
     helix,
     zbb,
-    ranger,
     ...
   }:
     with builtins; let
@@ -67,19 +62,6 @@
           src = zbb;
         };
       };
-
-      rangerOverlay = _: p: {
-        ranger = p.ranger.overrideAttrs (attrs: {
-          src = ranger;
-
-          propagatedBuildInputs = with p.python3Packages;
-            attrs.propagatedBuildInputs
-            ++ [
-              astroid
-              pylint
-            ];
-        });
-      };
     in {
       homeConfigurations = homeConfigs (system: {
         pkgs = import nixpkgs {
@@ -96,7 +78,6 @@
               inherit naersk;
             })
             zbbOverlay
-            rangerOverlay
           ];
         };
 

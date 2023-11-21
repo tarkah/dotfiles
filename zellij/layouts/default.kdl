@@ -5,16 +5,10 @@ layout {
     }
     floating_panes {
         pane {
-            x "5%"
+            x "25%"
             y "25%"
             width "50%"
             height "50%"
-        }
-        pane command="ranger" {
-            x "60%"
-            y 0
-            width "40%"
-            height "100%"
         }
     }
 }

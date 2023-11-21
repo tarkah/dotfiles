@@ -28,7 +28,6 @@ in {
     packages = with pkgs; [
       helix
       nil
-      ranger
     ];
 
     sessionVariables = {
@@ -123,8 +122,5 @@ in {
     configFile."helix/config.toml" = {
       source = ./helix/config.toml;
     };
-
-    configFile."ranger/rc.conf".source = ./ranger/rc.conf;
-    configFile."ranger/rifle.conf".source = ./ranger/rifle.conf;
   };
 }
