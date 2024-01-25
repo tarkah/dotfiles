@@ -3,11 +3,15 @@
     if stdenv.isDarwin
     then "14.0"
     else "11.0";
+  shell =
+    if stdenv.isDarwin
+    then "zsh"
+    else "fish";
 in ''
   env:
     TERM: alacritty
   shell:
-    program: zsh
+    program: ${shell}
   font:
     normal:
       family: Hack Nerd Font

@@ -45,6 +45,13 @@ in {
         '';
       };
     };
+
+    # macos workaround
+    file.".zshrc".text = ''
+      ${writeIf stdenv.isDarwin ''
+        fish
+      ''}
+    '';
   };
 
   targets.genericLinux.enable = stdenv.isLinux;
@@ -54,10 +61,8 @@ in {
 
     bash.enable = stdenv.isLinux;
 
-    zsh = {
+    fish = {
       enable = true;
-      enableAutosuggestions = true;
-      syntaxHighlighting.enable = true;
       shellAliases = {
         ls = "ls --color=auto";
         ll = "ls -al";
@@ -69,35 +74,40 @@ in {
         z = "zellij attach -c default";
         dlang = "source $(~/.dlang/install.sh -p ~/.dlang install ldc -a)";
       };
-      initExtra = ''
-        # Fpath
-        fpath+=~/.zfunc
-
+      interactiveShellInit = ''
+        set fish_greeting # Disable greeting
+      '';
+      shellInit = ''
         # Sourcing
-        function __source () [ -f $1 ] && . $1
-        __source "$HOME/.cargo/env"
-        __source "$HOME/.ghcup/env"
-        __source "$HOME/.zshrc.local"
-        unfunction __source
+        function __source
+          if test -f $argv[1]
+            source $argv[1]
+          end
+        end
+        __source "$HOME/.fish.local"
+        functions -e __source
 
         # Bindings
-        bindkey -e
-        bindkey '^ ' autosuggest-accept
-        bindkey "^[[1;5C" forward-word
-        bindkey "^[[1;5D" backward-word
-        bindkey "^[[H" beginning-of-line
-        bindkey "^[[F" end-of-line
-        bindkey "^[[3~" delete-char
+        function fish_user_key_bindings
+            bind -k nul accept-autosuggestion
+        end
+        # bindkey -e
+        # bindkey '^ ' autosuggest-accept
+        # bindkey "^[[1;5C" forward-word
+        # bindkey "^[[1;5D" backward-word
+        # bindkey "^[[H" beginning-of-line
+        # bindkey "^[[F" end-of-line
+        # bindkey "^[[3~" delete-char
 
         # Path
-        path=($HOME/.local/bin $path)
+        fish_add_path $HOME/.cargo/bin
+        fish_add_path $HOME/.local/bin
         ${writeIf stdenv.isDarwin ''
-          path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
+          fish_add_path /opt/homebrew/bin /opt/homebrew/sbin
         ''}
-        export PATH
 
         # Env
-        export DC=ldc2
+        set -gx DC ldc2
       '';
     };
 

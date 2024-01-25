@@ -1,7 +1,7 @@
 {zellij-bare-bar}: ''
   default_mode "locked"
   default_layout "default"
-  default_shell "zsh"
+  default_shell "fish"
   theme "ferra"
   on_force_close "quit"
   pane_frames false
