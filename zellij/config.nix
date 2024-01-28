@@ -102,6 +102,7 @@
           bind "8" { GoToTab 8; SwitchToMode "locked"; }
           bind "9" { GoToTab 9; SwitchToMode "locked"; }
           bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+          bind "Esc" { SwitchToMode "locked"; }
       }
       locked {
           bind "Ctrl a" { SwitchToMode "normal"; }
