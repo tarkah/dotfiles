@@ -8,46 +8,61 @@
     then "zsh"
     else "fish";
 in ''
-  env:
-    TERM: alacritty
-  shell:
-    program: ${shell}
-  font:
-    normal:
-      family: Hack Nerd Font
-      style: Regular
-    bold:
-      family: Hack Nerd Font
-      style: Bold
-    italic:
-      family: Hack Nerd Font
-      style: Italic
-    bold_italic:
-      family: Hack Nerd Font
-    size: ${fontSize}
-  key_bindings:
-    - { key: Right, mods: Alt, chars: "\x1BF" }
-    - { key: Left,  mods: Alt, chars: "\x1BB" }
-  colors:
-    primary:
-      background:   '#2b292d'
-      foreground:   '#fecdb2'
-    normal:
-      black:        '#1f1e20'
-      red:          '#c05862'
-      green:        '#b1b695'
-      yellow:       '#f5d76e'
-      blue:         '#ffa07a'
-      magenta:      '#f6b6c9'
-      cyan:         '#bfbfcf'
-      white:        '#f5f5f5'
-    bright:
-      black:        '#6f5d63'
-      red:          '#e06b75'
-      green:        '#9f9f7c'
-      yellow:       '#fff27a'
-      blue:         '#e88c6f'
-      magenta:      '#ffb9cc'
-      cyan:         '#d1d1e0'
-      white:        '#ffffff'
+  [colors.bright]
+  black = "#6f5d63"
+  blue = "#e88c6f"
+  cyan = "#d1d1e0"
+  green = "#9f9f7c"
+  magenta = "#ffb9cc"
+  red = "#e06b75"
+  white = "#ffffff"
+  yellow = "#fff27a"
+
+  [colors.normal]
+  black = "#1f1e20"
+  blue = "#ffa07a"
+  cyan = "#bfbfcf"
+  green = "#b1b695"
+  magenta = "#f6b6c9"
+  red = "#c05862"
+  white = "#f5f5f5"
+  yellow = "#f5d76e"
+
+  [colors.primary]
+  background = "#2b292d"
+  foreground = "#fecdb2"
+
+  [env]
+  TERM = "alacritty"
+
+  [shell]
+  program = "${shell}"
+
+  [font]
+  size = ${fontSize}
+
+  [font.bold]
+  family = "Hack Nerd Font"
+  style = "Bold"
+
+  [font.bold_italic]
+  family = "Hack Nerd Font"
+
+  [font.italic]
+  family = "Hack Nerd Font"
+  style = "Italic"
+
+  [font.normal]
+  family = "Hack Nerd Font"
+  style = "Regular"
+
+  [[keyboard.bindings]]
+  chars = "\u001BF"
+  key = "Right"
+  mods = "Alt"
+
+  [[keyboard.bindings]]
+  chars = "\u001BB"
+  key = "Left"
+  mods = "Alt"
 ''

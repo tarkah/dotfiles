@@ -126,7 +126,7 @@ in {
       source = ./starship/starship.toml;
     };
 
-    configFile."alacritty/alacritty.yml".text = alacritty;
+    configFile."alacritty/alacritty.toml".text = alacritty;
 
     configFile."helix/languages.toml".text = helix-languages;
     configFile."helix/config.toml" = {
