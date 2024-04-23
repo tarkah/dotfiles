@@ -65,11 +65,7 @@
   }
 
   plugins {
-      tab-bar { path "tab-bar"; }
-      status-bar { path "status-bar"; }
-      strider { path "strider"; }
-      compact-bar { path "compact-bar"; }
-      bare-bar { path "${zellij-bare-bar}/bin/bare-bar.wasm"; }
+      bare-bar location="file:${zellij-bare-bar}/bin/bare-bar.wasm"
   }
 
   keybinds clear-defaults=true {

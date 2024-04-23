@@ -1,7 +1,7 @@
 layout {
     pane
     pane size=1 borderless=true {
-        plugin location="zellij:bare-bar"
+        plugin location="bare-bar"
     }
     floating_panes {
         pane {
