@@ -35,8 +35,8 @@ in ''
   [env]
   TERM = "alacritty"
 
-  [shell]
-  program = "${shell}"
+  [terminal]
+  shell = "${shell}"
 
   [font]
   size = ${fontSize}
