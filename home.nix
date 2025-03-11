@@ -2,6 +2,7 @@
   config,
   pkgs,
   user,
+  profile,
   lib,
   ...
 }: let
@@ -11,6 +12,9 @@
   };
   zellij-config = pkgs.callPackage ./zellij/config.nix {};
   helix-languages = pkgs.callPackage ./helix/languages.nix {};
+  cargo-config = pkgs.callPackage ./cargo/config.nix {
+    inherit profile;
+  };
   writeIf = cond: message:
     if cond
     then message
@@ -52,6 +56,8 @@ in {
         fish
       ''}
     '';
+
+    file.".cargo/config.toml".text = cargo-config;
   };
 
   targets.genericLinux.enable = stdenv.isLinux;
@@ -66,10 +72,7 @@ in {
       shellAliases = {
         ls = "ls --color=auto";
         ll = "ls -al";
-        update =
-          if stdenv.isDarwin
-          then "home-manager switch --flake .#${user}@darwin"
-          else "home-manager switch --flake .#${user}@linux";
+        update = "home-manager switch --flake .#${user}@${profile}";
         develop = "nix develop path:$(pwd)/.nix";
         z = "zellij attach -c default";
         dlang = "source $(~/.dlang/install.sh -p ~/.dlang install ldc -a)";

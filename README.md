@@ -5,19 +5,16 @@
 - Activate `home-manager`
 
 ```sh
-# Linux
-nix build .#homeConfigurations."tarkah".activationPackage
-
-# Darwin
-nix build .#homeConfigurations."tarkah@darwin".activationPackage
+# <profile> is linux, darwin or work
+nix build .#homeConfigurations."tarkah@<profile>".activationPackage
 
 ./result/activate
 rm -rf result
 ```
 
-- Switch profiles
+- Update profile
 
 ```sh
-# aliased to `home-manager switch --flake .#<system>`
+# aliased to `home-manager switch --flake .#<system>@<profile>`
 update
 ```

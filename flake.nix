@@ -34,14 +34,18 @@
     with builtins; let
       user = "tarkah";
 
-      systems = [
+      profiles = [
         {
+          profile = "linux";
           system = "x86_64-linux";
-          name = "linux";
         }
         {
+          profile = "darwin";
           system = "aarch64-darwin";
-          name = "darwin";
+        }
+        {
+          profile = "work";
+          system = "aarch64-darwin";
         }
       ];
 
@@ -49,13 +53,17 @@
         listToAttrs
         (map
           ({
+            profile,
             system,
-            name,
           }: {
-            name = "${user}@${name}";
-            value = home-manager.lib.homeManagerConfiguration (config system);
+            name = "${user}@${profile}";
+            value = home-manager.lib.homeManagerConfiguration (
+              config {
+                inherit profile system;
+              }
+            );
           })
-          systems);
+          profiles);
 
       zbbOverlay = _: p: {
         zellij-bare-bar = p.callPackage ./packages/zellij-bare-bar.nix {
@@ -63,7 +71,10 @@
         };
       };
     in {
-      homeConfigurations = homeConfigs (system: {
+      homeConfigurations = homeConfigs ({
+        profile,
+        system,
+      }: {
         pkgs = import nixpkgs {
           inherit system;
 
@@ -85,7 +96,9 @@
           ./home.nix
         ];
 
-        extraSpecialArgs = {inherit user;};
+        extraSpecialArgs = {
+          inherit user profile;
+        };
       });
     };
 }
