@@ -1,0 +1,8 @@
+[ui]
+editor = "hx"
+
+[git]
+push-new-bookmarks = true
+
+[revset-aliases]
+"bookmarks" = "@ | root() | bookmarks()"

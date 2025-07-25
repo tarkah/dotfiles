@@ -136,5 +136,8 @@ in {
     configFile."helix/config.toml" = {
       source = ./helix/config.toml;
     };
+    configFile."jj/conf.d/base.toml" = {
+      source = ./jj/base.toml;
+    };
   };
 }
