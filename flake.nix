@@ -20,6 +20,10 @@
       url = "github:tarkah/zellij-bare-bar";
       flake = false;
     };
+    jujutsu = {
+      url = "github:jj-vcs/jj?ref=v0.31.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -29,6 +33,7 @@
     rust-overlay,
     helix,
     zbb,
+    jujutsu,
     ...
   }:
     with builtins; let
@@ -83,9 +88,10 @@
           };
 
           overlays = [
-            (import rust-overlay)
+            (rust-overlay.overlays.default)
+            (helix.overlays.default)
+            (jujutsu.overlays.default)
             (_: _: {
-              inherit (helix.packages.${system}) helix;
               inherit naersk;
             })
             zbbOverlay

@@ -32,6 +32,7 @@ in {
     packages = with pkgs; [
       helix
       nil
+      jujutsu
     ];
 
     sessionVariables = {
