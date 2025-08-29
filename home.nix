@@ -51,13 +51,6 @@ in {
       };
     };
 
-    # macos workaround
-    file.".zshrc".text = ''
-      ${writeIf stdenv.isDarwin ''
-        fish
-      ''}
-    '';
-
     file.".cargo/config.toml".text = cargo-config;
   };
 
